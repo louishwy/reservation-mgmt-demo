@@ -45,3 +45,7 @@ docker compose logs -f mongo
 docker compose logs -f backend
 docker compose logs -f frontend
 ```
+
+### Demo endpoint
+- Frontend: localhost:3000
+- Backend: localhost:4000/graphql
