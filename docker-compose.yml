@@ -1,0 +1,45 @@
+services:
+  mongo:
+    image: mongo:6.0
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=Administrator
+      - MONGO_INITDB_ROOT_PASSWORD=9800x3d
+      - MONGO_INITDB_DATABASE=reservations_db
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand({ping:1})"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URI=mongodb://Administrator:9800x3d@mongo:27017
+      - MONGO_DB_NAME=reservations_db
+      - MONGO_COLLECTION_NAME=reservations
+      - NODE_ENV=production
+    ports:
+      - "4000:4000"
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  mongo-data:

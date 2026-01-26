@@ -1,0 +1,34 @@
+{
+  "name": "reservation-mgmt-demo-backend",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "prestart": "ts-node src/db/migrate.ts",
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "test": "jest --config jest.config.cjs --runInBand",
+    "test:watch": "jest --config jest.config.cjs --watch"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.9.0",
+    "bcrypt": "^5.1.1",
+    "mongodb": "^5.7.0",
+    "express": "^4.18.2",
+    "graphql": "^16.8.1",
+    "graphql-tag": "^2.12.6",
+    "jsonwebtoken": "^9.0.2",
+    "winston": "^3.10.0"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.2.0",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^20.10.5",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.4.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "supertest": "^6.3.3",
+    "@types/jsonwebtoken": "^9.0.2"
+  }
+}

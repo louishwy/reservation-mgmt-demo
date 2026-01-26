@@ -1,0 +1,42 @@
+# General
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# Coverage and test caches
+/backend/coverage/
+/frontend/coverage/
+.cache/
+
+# Environment files
+.env
+.env.*
+
+# Editor
+.vscode/
+.idea/
+
+# OS temp files
+*~
+*.swp
+*~$*
+
+# Backend (actual folders in this repo)
+/backend/node_modules/
+/backend/.env
+/backend/dist/
+/backend/build/
+
+# Frontend (actual folders in this repo)
+/frontend/node_modules/
+/frontend/build/
+/frontend/.cache/
+
+# Misc temporary
+*.tmp
+*.temp
+
+# Docker
+docker-compose.override.yml
+.env.docker
